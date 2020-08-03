@@ -4,5 +4,4 @@
 target/
 out/
 classes/
-src/test
-src/main/resources
+src/main
