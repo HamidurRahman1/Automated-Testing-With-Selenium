@@ -1,6 +1,5 @@
-package com.qa.data;
+package com.qa.dataReader;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,12 +8,10 @@ import java.util.Map;
 
 public class DataReader
 {
-    public static Map<String, String> csvDataReader()
+    public static Map<String, String> csvDataReader(final String file)
     {
         try
         {
-            final String file = (new File("."+"/src/test/java/com/qa/data/sampleData.csv").toString());
-
             Map<String, String> data = new HashMap<>();
 
             Files.readAllLines(Paths.get(file)).forEach(line ->  {
