@@ -1,4 +1,4 @@
-package com.qa;
+package com.qa.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;

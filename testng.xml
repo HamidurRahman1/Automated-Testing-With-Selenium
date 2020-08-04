@@ -4,7 +4,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="/Users/hamidurrahman/Downloads/GitHub/Selenium-Automation-Testing">
         <classes>
-            <class name="com.qa.URLAndTitleCheckTest"/>
+            <class name="com.qa.tests.URLAndTitleCheckTest"/>
         </classes>
     </test>
 </suite>
