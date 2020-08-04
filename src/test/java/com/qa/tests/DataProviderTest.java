@@ -1,8 +1,12 @@
 package com.qa.tests;
 
+import com.qa.dataProvider.DataProviderClass;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 public class DataProviderTest
 {
@@ -32,5 +36,12 @@ public class DataProviderTest
         Assert.assertTrue(true);
         Assert.assertEquals(1, 1);
         Assert.assertTrue(true);
+    }
+
+    @Test(dataProvider = "csv-data", dataProviderClass = DataProviderClass.class)
+    public void dataFromCSVFileTest(Map<String, String> data)
+    {
+        System.out.println(data);
+        Assert.assertTrue(data.size() == 3);
     }
 }

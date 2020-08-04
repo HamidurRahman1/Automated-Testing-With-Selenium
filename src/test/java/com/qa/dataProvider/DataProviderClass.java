@@ -10,7 +10,7 @@ public class DataProviderClass
     private static final String file = (new File("."+"/src/test/java/com/qa/data/sampleData.csv").toString());
 
     @DataProvider(name = "csv-data")
-    public Object[][] readDataToMap()
+    public static Object[][] readDataToMap()
     {
         return new Object[][] {{DataReader.csvDataReader(file)}};
     }
