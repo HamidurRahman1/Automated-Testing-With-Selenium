@@ -1,4 +1,4 @@
-package com.qa.tests;
+package com.qa.tests.se;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
