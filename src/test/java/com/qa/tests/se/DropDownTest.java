@@ -26,7 +26,7 @@ public class DropDownTest
     }
 
     @Test(priority = 0, enabled = true)
-    public void urlAndTitleTest()
+    public void dropDownTest()
     {
         try
         {
