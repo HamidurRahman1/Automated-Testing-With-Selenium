@@ -24,7 +24,7 @@ public class DragAndDropTest
     }
 
     @Test
-    public void dropDownTest()
+    public void dragAndDropTest()
     {
         try
         {
