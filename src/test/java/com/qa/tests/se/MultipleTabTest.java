@@ -1,12 +1,16 @@
 package com.qa.tests.se;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.Set;
 import java.util.logging.Logger;
 
 public class MultipleTabTest
@@ -26,17 +30,27 @@ public class MultipleTabTest
     {
         try
         {
-            final String expectedUrl = "https://www.testandquiz.com/selenium/testing.html";
+            final String url = "https://www.testandquiz.com/selenium/testing.html";
 
-            webDriver.get(expectedUrl);
+            webDriver.get(url);
 
-            Assert.assertEquals(expectedUrl, webDriver.getCurrentUrl());
+            Thread.sleep(1000);
+            Assert.assertEquals(url, webDriver.getCurrentUrl());
 
-            // tbi
+            String mainWindow = webDriver.getWindowHandle();
+            logger.info("\t-> the main window: " + mainWindow);
+
+            for (int i = 1; i <= 2; i++) {
+                webDriver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND +"t");
+                Thread.sleep(2000);
+            }
+
+            Set<String> allTabs = webDriver.getWindowHandles();
+            logger.info("\t-> total windows: " + allTabs.size());
         }
         catch(Exception e)
         {
-            logger.severe("\t-> "+e.getMessage());
+            logger.severe("\t-> Error occurred: "+e.getMessage());
         }
     }
 
