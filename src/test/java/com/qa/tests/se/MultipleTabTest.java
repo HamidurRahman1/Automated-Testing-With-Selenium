@@ -1,10 +1,8 @@
 package com.qa.tests.se;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -40,8 +38,11 @@ public class MultipleTabTest
             String mainWindow = webDriver.getWindowHandle();
             logger.info("\t-> the main window: " + mainWindow);
 
-            for (int i = 1; i <= 2; i++) {
-                webDriver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND +"t");
+            for (int i = 1; i <= 2; i++)
+            {
+//                webDriver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND +"t");
+                JavascriptExecutor js = (JavascriptExecutor) webDriver;
+                js.executeScript("window.open();");
                 Thread.sleep(2000);
             }
 
