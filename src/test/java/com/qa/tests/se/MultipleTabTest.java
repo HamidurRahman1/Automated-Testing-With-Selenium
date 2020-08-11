@@ -8,8 +8,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class MultipleTabTest
 {
@@ -40,14 +42,47 @@ public class MultipleTabTest
 
             for (int i = 1; i <= 2; i++)
             {
-//                webDriver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND +"t");
                 JavascriptExecutor js = (JavascriptExecutor) webDriver;
                 js.executeScript("window.open();");
+
+                List<String> tabs = webDriver.getWindowHandles().stream().collect(Collectors.toList());
+                final String lastOpenTab = tabs.get(tabs.size()-1);
+
+                webDriver.switchTo().window(lastOpenTab);
+                webDriver.get(url);
+
+                Assert.assertEquals(url, webDriver.getCurrentUrl());
                 Thread.sleep(2000);
             }
 
             Set<String> allTabs = webDriver.getWindowHandles();
             logger.info("\t-> total windows: " + allTabs.size());
+
+            Thread.sleep(3000);
+
+            allTabs.forEach(e -> {
+                if(!e.equalsIgnoreCase(mainWindow))
+                {
+                    try
+                    {
+                        webDriver.switchTo().window(e);
+                        Thread.sleep(2000);
+                        webDriver.close();
+                    }
+                    catch (InterruptedException ex)
+                    {
+                        logger.severe("\t-> Error occurred: "+ex.getMessage());
+                    }
+                }
+            });
+
+            webDriver.switchTo().window(mainWindow);
+
+            Thread.sleep(2000);
+            logger.info("\t-> the main window: "+webDriver.getWindowHandle());
+
+            Assert.assertEquals(mainWindow, webDriver.getWindowHandle());
+            Thread.sleep(2000);
         }
         catch(Exception e)
         {
