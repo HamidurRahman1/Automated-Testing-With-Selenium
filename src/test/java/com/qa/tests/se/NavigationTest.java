@@ -2,6 +2,7 @@ package com.qa.tests.se;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -23,7 +24,27 @@ public class NavigationTest
     @Test
     public void navigationTest()
     {
+        try
+        {
+            final String url = "https://github.com/";
+            webDriver.navigate().to(url);
+            Thread.sleep(2000);
 
+            final String url2 = "https://github.com/HamidurRahman1";
+            webDriver.navigate().to(url2);
+            Thread.sleep(2000);
+
+            webDriver.navigate().back();
+            Thread.sleep(3000);
+
+            webDriver.navigate().forward();
+            Thread.sleep(3000);
+            Assert.assertEquals(webDriver.getCurrentUrl(), url2);
+        }
+        catch (Exception e)
+        {
+            logger.severe("\t-> "+e.getMessage());
+        }
     }
 
     @AfterClass
