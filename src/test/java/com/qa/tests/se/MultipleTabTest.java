@@ -21,7 +21,7 @@ public class MultipleTabTest
     @BeforeClass
     public void setup()
     {
-        logger = Logger.getLogger(URLAndTitleCheckTest.class.getName());
+        logger = Logger.getLogger(MultipleTabTest.class.getName());
         webDriver = new ChromeDriver();
     }
 

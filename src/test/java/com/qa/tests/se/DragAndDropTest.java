@@ -41,7 +41,7 @@ public class DragAndDropTest
         }
         catch(Exception e)
         {
-            logger.severe("\t-> "+e.getMessage());
+            logger.severe("\t-> Error occurred: "+e.getMessage());
         }
     }
 

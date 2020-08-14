@@ -21,7 +21,7 @@ public class DropDownTest
     @BeforeClass
     public void setup()
     {
-        logger = Logger.getLogger(URLAndTitleCheckTest.class.getName());
+        logger = Logger.getLogger(DropDownTest.class.getName());
         webDriver = new ChromeDriver();
     }
 
@@ -61,7 +61,7 @@ public class DropDownTest
         }
         catch(Exception e)
         {
-            logger.severe("\t-> "+e.getMessage());
+            logger.severe("\t-> Error occurred: "+e.getMessage());
         }
     }
 

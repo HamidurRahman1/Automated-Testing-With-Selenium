@@ -38,7 +38,7 @@ public class URLAndTitleCheckTest
         }
         catch(Exception e)
         {
-            System.out.println(e.getMessage());
+            logger.severe("\t-> Error occurred: "+e.getMessage());
         }
     }
 
