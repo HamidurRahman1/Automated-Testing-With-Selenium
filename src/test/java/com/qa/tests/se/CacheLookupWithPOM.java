@@ -2,6 +2,7 @@ package com.qa.tests.se;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -30,7 +31,23 @@ public class CacheLookupWithPOM
     {
         try
         {
-            // tbi
+            webDriver.get("https://github.com/login");
+
+            GitHubLoginPOM pageObject = PageFactory.initElements(webDriver, GitHubLoginPOM.class);
+            pageObject.getUsername().sendKeys("myGithubUsername");
+
+            long withoutCacheStartTime = System.currentTimeMillis();
+            for(int i = 1; i <= 1000; i ++)
+                pageObject.getUsername().getText();
+
+            System.out.println("Time taken in seconds Without cache: " + ((System.currentTimeMillis() - withoutCacheStartTime)/ 1000));
+
+            pageObject.getPassword().sendKeys("Github#@pass");
+            long withCacheStartTime = System.currentTimeMillis();
+            for(int i = 1; i <= 1000; i ++)
+                pageObject.getPassword().getText();
+
+            System.out.println("Time taken in seconds With cache: " + ((System.currentTimeMillis() - withCacheStartTime)/ 1000));
         }
         catch(Exception e)
         {
