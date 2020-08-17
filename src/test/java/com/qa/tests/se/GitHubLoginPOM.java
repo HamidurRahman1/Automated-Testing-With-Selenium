@@ -1,5 +1,6 @@
 package com.qa.tests.se;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -11,9 +12,17 @@ import org.openqa.selenium.support.How;
 public class GitHubLoginPOM
 {
     @FindBy(how = How.ID, using = "login_field")
-    private String username;
+    private WebElement username;
 
     @CacheLookup
     @FindBy(how = How.ID, using = "password")
-    private String password;
+    private WebElement password;
+
+    public WebElement getUsername() {
+        return username;
+    }
+
+    public WebElement getPassword() {
+        return password;
+    }
 }
