@@ -19,6 +19,16 @@ public abstract class BaseBeforeClass
         webDriver = new ChromeDriver();
     }
 
+    public WebDriver getWebDriver()
+    {
+        return webDriver;
+    }
+
+    public Logger getLogger()
+    {
+        return logger;
+    }
+
     @AfterClass
     public void tearDown()
     {
