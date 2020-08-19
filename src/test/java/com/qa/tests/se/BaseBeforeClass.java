@@ -15,7 +15,7 @@ public abstract class BaseBeforeClass
     @BeforeClass
     public void setup()
     {
-        logger = Logger.getLogger(CacheLookupWithPOM.class.getName());
+        logger = Logger.getLogger(BaseBeforeClass.class.getName());
         webDriver = new ChromeDriver();
     }
 
