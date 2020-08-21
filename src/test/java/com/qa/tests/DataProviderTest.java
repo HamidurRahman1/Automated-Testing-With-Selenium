@@ -28,16 +28,6 @@ public class DataProviderTest
         System.out.println(username + " - " + pass);
     }
 
-    @Test
-    public void hardAssertTest()
-    {
-        // hard asserts are just regular assert in TestNg. If any assert fails then the whole test fails. If any exceptions
-        // are thrown and not handled then the whole program execution stops
-        Assert.assertTrue(true);
-        Assert.assertEquals(1, 1);
-        Assert.assertTrue(true);
-    }
-
     @Test(dataProvider = "csv-data", dataProviderClass = DataProviderClass.class)
     public void dataFromCSVFileTest(Map<String, String> data)
     {
