@@ -1,14 +1,9 @@
 package com.qa.tests;
 
-import com.qa.dataProvider.DataProviderClass;
-
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.Map;
-
-public class DataProviderTest
+public class DataProviderViaObjectTest
 {
     @DataProvider(name = "user_pass")
     public Object[][] userNamePassword()
@@ -26,12 +21,5 @@ public class DataProviderTest
     public void repetitiveTest(String username, String pass)
     {
         System.out.println(username + " - " + pass);
-    }
-
-    @Test(dataProvider = "csv-data", dataProviderClass = DataProviderClass.class)
-    public void dataFromCSVFileTest(Map<String, String> data)
-    {
-        System.out.println(data);
-        Assert.assertTrue(data.size() == 3);
     }
 }
