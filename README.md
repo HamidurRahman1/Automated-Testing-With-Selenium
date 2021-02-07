@@ -14,13 +14,13 @@ Content:
 
 # Selenium
 
-### Q: What is selenium?
- - Selenium is an free, open-source User Interface automation testing tool used to validate web applications across different 
+### Q: What is Selenium?
+ - Selenium is a free, open-source User Interface automation testing tool used to validate web applications across different 
 browsers and platforms. It is used exclusively for web-based applications. Selenium is composed of multiple tools. 
 It works with all major platforms has support for all major browsers as well. Selenium has integration with popular 
 languages like Java, C#, Python, etc.
 
-### Q: Components of selenium?
+### Q: Components of Selenium?
  - <h4>Selenium IDE</h4>
     - Selenium IDE is Firefox plugin which gives us the reacord/play back feature of test cases via a GUI. It allows to write 
     a test case and convert this test case to any supporting language.
@@ -42,7 +42,7 @@ languages like Java, C#, Python, etc.
 4. Browser Driver receives a response(s) back from the browser and sends back the result to the client in JSON format.
 
 ### Q: How do you invoke a browser?
-By creating an instance of the specific browser’s WebDriver and calling <code>webDriver.get("url")</code> method on it. 
+ - By creating an instance of the specific browser’s WebDriver and calling <code>webDriver.get("url")</code> method on it. 
 (Assuming the apporpriate dependencies and the web driver path have been configured successfully.)
 ```java
 WebDriver webDriver = new ChromeDriver();
@@ -68,13 +68,24 @@ webDriver.get(“urlToGet”);
  - ```quit()```
    - Quits the driver and closes all window associated with it.
  - ```getWindowHandle()```
-   - a
+   - It returns a ```String``` representation of the window is in focus by the driver. The value can be used to switch to multiple windows.
  - ```getWindowHandles()```
-   - a
+   - It returns a ```Set<String>``` which can be iterated over to switch between windows.
  - ```manage()```
-   - a
+   - a 
  - ```navigate()```
-   - a
+   - As name suggests, it used it context of going back and/or forward in the browser's history or visited page. It returns
+   a ```Navigation``` object which has these methods:
+     - ```to(String)```
+         - It takes a ```String``` as an url and loads that url.
+     - ```to(URL)```
+         - It takes a ```URL``` as an url and loads that url.
+     - ```back()```
+         - It takes back the previously visited page, if there is any.
+     - ```forward()```
+         - It takes the ```webdriver``` to 1 page forward, if there is any.
+     - ```refresh()```
+         - Refresh the current web page.
  - ```switchTo()```
    - a
 
