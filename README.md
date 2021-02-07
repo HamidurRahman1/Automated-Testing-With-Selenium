@@ -35,13 +35,13 @@ languages like Java, C#, Python, etc.
     - Selenium Grid is a tool used to run tests on different machines against different browsers in parallel. That is, 
       running multiple tests at the same time against different machines running different browsers and operating systems.
 
-### What is Selenium WebDriver Architecture?
+### Q: What is Selenium WebDriver Architecture?
 1. All Test classes or suites are converted to JSON format as soon as they are being run.
 2. All JSON generated in step 1 will be sent to Browser Driver over the HTTP protocol. (Every browser have an independent driver associated with them)
 3. Browser Driver communicates with its respective browser and executes the commands by interpreting the JSON which was received.
 4. Browser Driver receives a response(s) back from the browser and sends back the result to the client in JSON format.
 
-### How do you invoke a browser?
+### Q: How do you invoke a browser?
 By creating an instance of the specific browser’s WebDriver and calling <code>webDriver.get("url")</code> method on it. 
 (Assuming the apporpriate dependencies and the web driver path have been configured successfully.)
 ```java
@@ -49,23 +49,41 @@ WebDriver webDriver = new ChromeDriver();
 webDriver.get(“urlToGet”);
 ```
 
-### Methods of a WebDriver?
- - <code>get(string)</code>
-    - It takes URL as a string and tries to open it. If successful it will open the given link in the current browser window.
- - <code>getCurrentUrl()<code>
+### Q: Methods of a WebDriver?
+ - ```get(string)```
+    - It takes URL as a string and tries to open it. If successful it will open the given link in the current browser 
+      window.
+ - ```getCurrentUrl()```
     - Returns a string represtation of the URL the driver is at.
- - <code>getTitle()</code>
+ - ```getTitle()```
     - Returns the title of the current page.
- - <code>close()</code>
+ - ```close()```
     - Closes the current window. Quits the driver if it was the only window.
- - <code>findElement(By by)<code>
+ - ```findElement(By by)```
     - Finds the first element in the current page that matches the given identifier.
- - <code>findElements(By by)<code>
+ - ```findElements(By by)```
     - Finds all elements in the current page that matches the given identifier.
-    
+ - ```findElements(By by)```
+    - Finds all elements in the current page that matches the given identifier.
+ - ```quit()```
+   - Quits the driver and closes all window associated with it.
+ - ```getWindowHandle()```
+   - a
+ - ```getWindowHandles()```
+   - a
+ - ```manage()```
+   - a
+ - ```navigate()```
+   - a
+ - ```switchTo()```
+   - a
+
+
+
+
 --
 
-### Challenges of Selenium?
+### Q: Challenges of Selenium?
 1. Cannot test anything besides web browser.
 2. Cannot test mobile applications.
 3. Limited reporting. (Work around via TestNG)
