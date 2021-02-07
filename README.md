@@ -49,9 +49,20 @@ WebDriver webDriver = new ChromeDriver();
 webDriver.get(“urlToGet”);
 ```
 
-
-
-
+### Methods of a WebDriver?
+ - <code>get(string)</code>
+    - It takes URL as a string and tries to open it. If successful it will open the given link in the current browser window.
+ - <code>getCurrentUrl()<code>
+    - Returns a string represtation of the URL the driver is at.
+ - <code>getTitle()</code>
+    - Returns the title of the current page.
+ - <code>close()</code>
+    - Closes the current window. Quits the driver if it was the only window.
+ - <code>findElement(By by)<code>
+    - Finds the first element in the current page that matches the given identifier.
+ - <code>findElements(By by)<code>
+    - Finds all elements in the current page that matches the given identifier.
+    
 --
 
 ### Challenges of Selenium?
