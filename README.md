@@ -50,11 +50,11 @@ webDriver.get(“urlToGet”);
 ```
 
 ### Q: Methods of a WebDriver?
- - ```get(string)```
-    - It takes URL as a string and tries to open it. If successful it will open the given link in the current browser 
+ - ```get(String)```
+    - It takes a URL as a string and tries to open it. If successful it will open the given link in the current browser 
       window.
  - ```getCurrentUrl()```
-    - Returns a string represtation of the URL the driver is at.
+    - Returns a string representation of the URL the driver is at.
  - ```getTitle()```
     - Returns the title of the current page.
  - ```close()```
@@ -77,9 +77,9 @@ webDriver.get(“urlToGet”);
    - As name suggests, it used it context of going back and/or forward in the browser's history or visited page. It returns
    a ```Navigation``` object which has these methods:
      - ```to(String)```
-         - It takes a ```String``` as an url and loads that url.
+         - It takes a ```String``` as a URL and loads that url.
      - ```to(URL)```
-         - It takes a ```URL``` as an url and loads that url.
+         - It takes a ```URL``` as a URL and loads that url.
      - ```back()```
          - It takes back the previously visited page, if there is any.
      - ```forward()```
@@ -89,8 +89,29 @@ webDriver.get(“urlToGet”);
  - ```switchTo()```
    - a
 
-
-
+### Q: What is a Locator?
+ - A locator is a command that selenium identifies and using that it interacts with elements. Locators are instance of ```By```
+   interface in Java.
+ - <b>Types of Locators:</b>
+    - ```id(String)```: Locating elements on the page using ID is the fastest way to interact with elements since ID are 
+      unique. Ex. ```By.id(String)```
+    - ```linkText(String)```: It is used to interact with elements (<a> tags). It takes the text that is visible for any
+      given link. Ex. ```By.linkText(completeTextOfTheLink)```. The specified text is the exact text that is available on
+      the webpage.
+    - ```partialLinkText(String)```: It is used to interact with elements (<a> tags). It takes the text that partially matches
+      any link on the web page. Ex. ```By.linkText(partialLinkText)```.
+    - ```name(String)```: It locates elements on the page using HTML name attribute value given to the function. Ex. ```By.name(string)```
+    - ```className(String)```: Class Name locator gives the element which matches the values specified in the HTML attribute
+      name "class".
+    - ```tagName(String)```: Tag Name locator is used to find the elements matching the specified HTML Tag Name. Ex. ```By.name(string)```
+    - ```cssSelector(String)```: CSS Selectors in Selenium are string patterns used to identify an element based on a 
+      combination of HTML tag, id, class, attributes, inner text, and child.
+    - ```xpath(String)```: XPath is the language used when locating XML nodes. Since HTML can be thought of as an 
+      implementation of XML, we can also use XPath in locating HTML elements.
+        - Advantage: It can access almost any element, even those without class, name, or id attributes.
+        - Disadvantage: It is the most complicated method of identifying elements because of too many rules and 
+          considerations.
+        - Tools like SelectorsHub, ChroPath, Firebug etc. can automatically generate XPath for elements on the page.
 
 --
 
