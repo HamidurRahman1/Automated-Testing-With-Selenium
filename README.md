@@ -113,6 +113,32 @@ webDriver.get(“urlToGet”);
           considerations.
         - Tools like SelectorsHub, ChroPath, Firebug etc. can automatically generate XPath for elements on the page.
 
+### About XPath and CSS Selector:
+ - Xpath and CSS are preferred as locators as others could potentially be dynamic.
+ - <b>Absolute and Relative Path:</b>
+    - <b>Absolute path:</b> Absolute path means to specify every single node to select a node inside a hierarchical 
+      document. It always starts from root node, ```/html```. It is relatively faster than a relative path.
+    - <b>Relative path:</b> In Relative XPath expression you can start from the node of your choice.
+ - <b>Expression ```/``` and ```//```:</b>
+    - A double slash "//" means any descendant node of the current node in the HTML tree which matches the locator.
+    - A single slash "/" means a node which is a direct child of the current.
+    - ```//div[@id='add']//span[@id=addone']``` will match both:
+      ```
+        <div id="add">
+            <div>
+                <span id="addone">
+            </div>
+        </div>
+      
+        <div id="add">
+           <span id="addone">
+        </div>
+      ```
+    - ```//div[@id='add']/span[@id=addone']``` will match only the second HTML tree.
+ - ClassName locators cannot have space(s) in the value.
+ - Default Xpath has double quotes inside it but Java would not allow it. So we convert all double quotes to single quotes.
+ - Xpath starting with ```/HTML``` is not reliable.
+
 --
 
 ### Q: Challenges of Selenium?
