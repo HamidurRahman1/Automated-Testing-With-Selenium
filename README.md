@@ -139,6 +139,22 @@ webDriver.get(“urlToGet”);
  - Default Xpath has double quotes inside it but Java would not allow it. So we convert all double quotes to single quotes.
  - Xpath starting with ```/HTML``` is not reliable.
 
+
+### Select Option:
+ - the ```Select``` class provides the implementation of the HTML SELECT tag. A select tag provides the helper methods with 
+   selecting and deselecting options.
+   ```java
+   Select dropDown = new Select(webDriver.findElement(By.id("dropDownLocator")));
+   
+   dropDown.selectByIndex(2);  // select the 3rd option
+   dropDown.selectByVisibleText("displayedText"); // select the option that matches the specified text
+   dropDown.selectByValue("value");     // select the option that matches the with the specified value
+   dropDown.isMultiple();    // checks if multiple option can be selected, returns boolean
+   dropDown.getOptions();   // returns all options of the dropdown as List<WebElement>
+   dropDown.getFirstSelectedOption(); // returns the first element from the selected options
+   dropDown.deselectAll();  // uncheck all options
+   ```
+
 --
 
 ### Q: Challenges of Selenium?
