@@ -155,7 +155,11 @@ webDriver.get(“urlToGet”);
    dropDown.deselectAll();  // uncheck all options
    ```
 
---
+### Q: How to count CheckBoxes in a web page?
+ - By calling ```findElements()``` with either ```cssSelector``` or ```XPath```. Ex - 
+ ```java
+    webDriver.findElements(By.cssSelector("input[type='checkbox']")).size();
+   ```
 
 ### Q: Challenges of Selenium?
 1. Cannot test anything besides web browser.
@@ -168,3 +172,4 @@ webDriver.get(“urlToGet”);
 
 ---
 
+# TestNG
