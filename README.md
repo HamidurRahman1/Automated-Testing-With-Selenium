@@ -170,14 +170,23 @@ webDriver.get(“urlToGet”);
 ### Q: How to take a Screenshot?
  - By casting the driver object to ```TakeScreenshot``` class and calling ```getScreenshotAs(OutputTye.File)``` which 
    returns a ```File``` object. OutputType is an interface. Screenshot is saved as PNG file, if saved as ```OutputTye.File```.
-   It can also be saved a ```byte[]```. Finally, we can move the screenshot file to desired destination. Ex - 
+   It can also be saved as ```byte[]```. Finally, we can move the screenshot file to desired destination. Ex - 
    ```java
     File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
     Path path = Files.move(Paths.get(file.getAbsolutePath()), Paths.get("/Users/hamidurrahman/Downloads/"+file.getName()));
     Assert.assertNotNull(path);
    ```
-   
-   
+
+### Q: Waits in Selenium?
+- <b>Implicit Wait:</b> An implicit wait allows driver to listen to the DOM for a certain amount of times to find an element or
+  execution of the flow before throwing ```NoSuchElementException```. It is also known as global wait as it is applied to 
+  the execution of the test. Ex - 
+  ```java
+  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+  ```
+  This will tell the driver to wait 5 seconds but if the element is found/visible before 5 seconds then it will continue
+  the execution without waiting for 5 seconds.
+
 
 ### Q: Challenges of Selenium?
 1. Cannot test anything besides web browser.
