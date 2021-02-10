@@ -63,8 +63,6 @@ webDriver.get(“urlToGet”);
     - Finds the first element in the current page that matches the given identifier.
  - ```findElements(By by)```
     - Finds all elements in the current page that matches the given identifier.
- - ```findElements(By by)```
-    - Finds all elements in the current page that matches the given identifier.
  - ```quit()```
    - Quits the driver and closes all window associated with it.
  - ```getWindowHandle()```
@@ -169,7 +167,17 @@ webDriver.get(“urlToGet”);
     webDriver.findElements(By.cssSelector("input[type='checkbox']")).size();
    ```
 
-### 
+### Q: How to take a Screenshot?
+ - By casting the driver object to ```TakeScreenshot``` class and calling ```getScreenshotAs(OutputTye.File)``` which 
+   returns a ```File``` object. OutputType is an interface. Screenshot is saved as PNG file, if saved as ```OutputTye.File```.
+   It can also be saved a ```byte[]```. Finally, we can move the screenshot file to desired destination. Ex - 
+   ```java
+    File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    Path path = Files.move(Paths.get(file.getAbsolutePath()), Paths.get("/Users/hamidurrahman/Downloads/"+file.getName()));
+    Assert.assertNotNull(path);
+   ```
+   
+   
 
 ### Q: Challenges of Selenium?
 1. Cannot test anything besides web browser.
