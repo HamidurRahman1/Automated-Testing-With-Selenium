@@ -87,7 +87,15 @@ webDriver.get(“urlToGet”);
      - ```refresh()```
          - Refresh the current web page.
  - ```switchTo()```
-   - a
+   - ```alert()``` - Returns an ```Alert``` object, has below methods to work with alerts.
+     - ```accept()``` - accepts the alert by clicking <b>OK</b>.
+     - ```dismiss()``` - cancel the alert by clicking <b>Cancel</b>.
+     - ```getText()``` - returns the displayed text of the alert.
+     - ```sendKeys()``` - enters text to the prompt field of the alert box.
+   - ```frame(...)``` - frame has overloaded methods to switch to a frame.
+   - ```parentFrame()``` - switching to parent frames can be achieved by this method.
+   - ```defaultContent()``` - switches the control to the main page.
+   - ```window(String)``` - switches the driver control to the given window, if found.
 
 ### Q: What is a Locator?
  - A locator is a command that selenium identifies and using that it interacts with elements. Locators are instance of ```By```
@@ -160,6 +168,8 @@ webDriver.get(“urlToGet”);
  ```java
     webDriver.findElements(By.cssSelector("input[type='checkbox']")).size();
    ```
+
+### 
 
 ### Q: Challenges of Selenium?
 1. Cannot test anything besides web browser.
