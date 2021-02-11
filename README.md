@@ -182,10 +182,19 @@ webDriver.get(“urlToGet”);
   execution of the flow before throwing ```NoSuchElementException```. It is also known as global wait as it is applied to 
   the execution of the test. Ex - 
   ```java
-  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
   ```
   This will tell the driver to wait 5 seconds but if the element is found/visible before 5 seconds then it will continue
   the execution without waiting for 5 seconds.
+  
+- <b>Explicit Wait:</b> With an explicit wait command, the WebDriver is directed to wait until a certain condition occurs
+  before proceeding executing the code and throwing ```NoSuchElementException```. Explicit wait is more intelligent,
+  but can only be applied for specified elements where an implicit wait is applied to the whole test. Ex -
+  ```java
+    WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("id")));
+    element.click();
+  ```
 
 
 ### Q: Challenges of Selenium?
