@@ -195,6 +195,22 @@ webDriver.get(“urlToGet”);
     WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("id")));
     element.click();
   ```
+- <b>Fluent Wait:</b> FluentWait instance defines the maximum amount of time to wait for a condition, as well as the 
+  frequency with which to check the condition.
+  ```java
+    // Waiting 30 seconds for an element to be present on the page, checking
+    // for its presence once every 5 seconds.
+    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(5))
+                .ignoring(NoSuchElementException.class);
+
+    WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
+        public WebElement apply(WebDriver driver) {
+            return driver.findElement(By.id("foo"));
+        }
+    });
+  ```
 
 
 ### Q: Challenges of Selenium?
